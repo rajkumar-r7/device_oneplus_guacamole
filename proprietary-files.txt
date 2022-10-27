@@ -45,10 +45,12 @@ vendor/lib/rfsa/adsp/libSuperSensor_skel.so
 vendor/lib/rfsa/adsp/libVC1Dec.so
 vendor/lib/rfsa/adsp/libVC1DecDsp_skel.so
 
-# ANT+
-system_ext/lib/com.qualcomm.qti.ant@1.0.so
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+# ANT+ (system) - from LA.QSSI.13.0.r1-07000-qssi.0
+system_ext/lib/com.qualcomm.qti.ant@1.0.so|73d8585e7545c2691f4a7e91f92939438400916d
+system_ext/lib64/com.qualcomm.qti.ant@1.0.so|06973e33dcabf70a9195a74b1df91fc0d0937e58
+
+# ANT+ - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so|0f8f5c3081d0ef745e0896b1fceea15f52fe3b21
 
 # Audio firmware
 vendor/firmware/tfa98xx.cnt
