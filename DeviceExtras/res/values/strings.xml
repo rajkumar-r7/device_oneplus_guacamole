@@ -208,4 +208,11 @@
     <string name="vib_call_strength_summary">Define the strength of the vibrator during an incoming call</string>
     <string name="vib_notif_strength_title">Notification strength</string>
     <string name="vib_notif_strength_summary">Define the strength of the vibrator during an incoming notification</string>
+
+    <!-- Per-app refresh rate -->
+    <string name="refresh_title">Per-app refresh rate</string>
+    <string name="refresh_summary">Set the maximum refresh rate for a specific application</string>
+    <string name="refresh_default">Default</string>
+    <string name="refresh_standard">Standard (60Hz)</string>    
+    <string name="refresh_extreme">Extreme (90Hz)</string> 
 </resources>

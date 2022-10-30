@@ -29,6 +29,7 @@ import org.evolution.oneplus.DeviceExtras.FileUtils;
 import org.evolution.oneplus.DeviceExtras.modeswitch.*;
 import org.evolution.oneplus.DeviceExtras.preferences.*;
 import org.evolution.oneplus.DeviceExtras.services.FPSInfoService;
+import org.evolution.oneplus.DeviceExtras.RefreshRate.RefreshUtils;
 
 public class Startup extends BroadcastReceiver {
 
@@ -48,6 +49,8 @@ public class Startup extends BroadcastReceiver {
         VibratorNotifStrengthPreference.restore(context);
         VibratorStrengthPreference.restore(context);
 
+        RefreshUtils.startService(context);        
+
         RedPreference.restore(context);
         GreenPreference.restore(context);
         BluePreference.restore(context);
@@ -55,7 +58,7 @@ public class Startup extends BroadcastReceiver {
         HuePreference.restore(context);
         ValuePreference.restore(context);
         ContrastPreference.restore(context);
-
+        
         boolean enabled = false;
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_DC_SWITCH, false);
