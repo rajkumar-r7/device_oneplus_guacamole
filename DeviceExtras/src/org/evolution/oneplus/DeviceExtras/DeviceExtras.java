@@ -55,7 +55,6 @@ import org.evolution.oneplus.DeviceExtras.preferences.*;
 import org.evolution.oneplus.DeviceExtras.R;
 import org.evolution.oneplus.DeviceExtras.services.*;
 import org.evolution.oneplus.DeviceExtras.slider.SliderConstants;
-import org.evolution.oneplus.DeviceExtras.touch.TouchscreenGestureSettings;
 
 public class DeviceExtras extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -121,7 +120,6 @@ public class DeviceExtras extends PreferenceFragment
     private CustomSeekBarPreference mFpsInfoTextSizePreference;
     private EarGainPreference mEarGain;
     private Preference mDozeSettings;
-    private Preference mTouchScreenGestureSettings;
     private ListPreference mBottomKeyPref;
     private ListPreference mMiddleKeyPref;
     private ListPreference mTopKeyPref;
@@ -244,18 +242,7 @@ public class DeviceExtras extends PreferenceFragment
             getPreferenceScreen().removePreference((Preference) findPreference(KEY_CATEGORY_FPS));
         }
 
-        boolean touchscreenCategory = false;
 
-        // TouchScreen Gestures
-        touchscreenCategory = touchscreenCategory | isFeatureSupported(context, R.bool.config_deviceSupportsTouchScreenGestures);
-        if (isFeatureSupported(context, R.bool.config_deviceSupportsTouchScreenGestures)) {
-        }
-        else {
-            findPreference(KEY_TOUCHSCREEN_GESTURES ).setVisible(false);
-        }
-
-        // Game Mode
-        touchscreenCategory = touchscreenCategory | isFeatureSupported(context, R.bool.config_deviceSupportsGameMode);
         if (isFeatureSupported(context, R.bool.config_deviceSupportsGameMode)) {
             mGameModeSwitch = (TwoStatePreference) findPreference(KEY_GAME_SWITCH);
             mGameModeSwitch.setEnabled(GameModeSwitch.isSupported(this.getContext()));
@@ -265,22 +252,6 @@ public class DeviceExtras extends PreferenceFragment
         else {
            findPreference(KEY_GAME_SWITCH).setVisible(false);
            findPreference(KEY_GAME_SWITCH_WARNING).setVisible(false);
-        }
-
-        // TP Edge Limit
-        touchscreenCategory = touchscreenCategory | isFeatureSupported(context, R.bool.config_deviceSupportsTPEdgeLimit);
-        if (isFeatureSupported(context, R.bool.config_deviceSupportsTPEdgeLimit)) {
-            mTPEdgeLimitModeSwitch = (TwoStatePreference) findPreference(KEY_TP_EDGE_LIMIT_SWITCH);
-            mTPEdgeLimitModeSwitch.setEnabled(TPEdgeLimitModeSwitch.isSupported(this.getContext()));
-            mTPEdgeLimitModeSwitch.setChecked(TPEdgeLimitModeSwitch.isCurrentlyEnabled(this.getContext()));
-            mTPEdgeLimitModeSwitch.setOnPreferenceChangeListener(new TPEdgeLimitModeSwitch());
-        }
-        else {
-           findPreference(KEY_TP_EDGE_LIMIT_SWITCH).setVisible(false);
-        }
-
-        if (!touchscreenCategory) {
-            getPreferenceScreen().removePreference((Preference) findPreference(KEY_CATEGORY_TOUCHSCREEN));
         }
 
         boolean speakerCategory = false;

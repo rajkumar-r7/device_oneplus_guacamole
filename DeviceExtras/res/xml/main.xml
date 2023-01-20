@@ -171,16 +171,6 @@
         android:key="touchscreen"
         android:title="@string/touchscreen_title">
 
-        <Preference
-            android:key="touchscreen_gestures"
-            android:title="@string/touchscreen_gesture_settings_title"
-            android:summary="@string/touchscreen_gesture_settings_summary"
-            android:persistent="false" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="org.evolution.oneplus.DeviceExtras"
-                    android:targetClass="org.evolution.oneplus.DeviceExtras.touch.TouchscreenGestureSettings" />
-        </Preference>
-
         <SwitchPreference
             android:key="game_mode"
             android:summary="@string/game_mode_summary"
